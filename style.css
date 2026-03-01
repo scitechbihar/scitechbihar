@@ -216,3 +216,22 @@
     border-radius:8px;
     font-weight:bold;
 }
+
+.daily-update{
+padding:40px;
+background:#f4f6fb;
+}
+
+.daily-update h2{
+color:#0b3d91;
+margin-bottom:15px;
+}
+
+.daily-update ul{
+list-style:none;
+}
+
+.daily-update li{
+margin:10px 0;
+font-size:18px;
+}
