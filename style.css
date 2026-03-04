@@ -259,7 +259,30 @@ margin:6px 0;
 font-size:18px;
 }
 
-
 section{
 margin-bottom:40px;
+}
+
+.home-sections{
+display:flex;
+gap:40px;
+padding:40px;
+}
+
+.home-sections{
+display:flex;
+gap:40px;
+padding:40px;
+}
+
+.daily-updates,
+.study-material{
+flex:1;
+}
+
+.daily-updates ul,
+.study-material ul{
+list-style:none;
+padding-left:0;
+line-height:1.8;
 }
