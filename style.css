@@ -235,15 +235,19 @@ list-style:none;
 margin:10px 0;
 font-size:18px;
 }
-
 .study-material ul{
 list-style:none;
 font-size:18px;
 line-height:1.8;
+padding-left:0;
 }
 
 .study-material li{
-margin:10px 0;
+margin:8px 0;
+}
+
+.study-material{
+padding-left:40px;
 }
 
 section{
