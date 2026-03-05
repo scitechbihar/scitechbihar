@@ -339,3 +339,19 @@ color:white;
 text-decoration:none;
 border-radius:4px;
 }
+
+.popular-posts{
+background:white;
+padding:25px;
+margin:40px;
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.popular-posts ul{
+list-style:none;
+padding-left:0;
+}
+
+.popular-posts li{
+margin:8px 0;
+}
