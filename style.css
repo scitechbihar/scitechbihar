@@ -9,9 +9,15 @@
 .topbar{
 background:#0b3d91;
 color:white;
-padding:6px 40px;
-font-size:14px;
+padding:6px 0;
 }
+
+.topbar-text{
+max-width:1200px;
+margin:auto;
+padding:0 40px;
+}
+
 
 .navbar{
 position: sticky;
