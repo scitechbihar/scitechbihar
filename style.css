@@ -422,3 +422,16 @@ object-fit:cover;
 100%{transform:translateX(0);}
 
 }
+
+.archive-btn{
+background:#2e7d32;
+color:white;
+padding:10px 20px;
+text-decoration:none;
+border-radius:5px;
+font-weight:bold;
+}
+
+.archive-btn:hover{
+background:#1b5e20;
+}
