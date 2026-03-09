@@ -177,32 +177,6 @@ box-shadow:0 2px 8px rgba(0,0,0,0.1);
     margin:auto;
 }
 
-.letter-card{
-    background:white;
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    transition:0.3s;
-}
-
-.letter-card:hover{
-    transform:translateY(-5px);
-}
-
-.letter-card h3{
-    color:#0b3d91;
-    margin-bottom:10px;
-}
-
-.letter-card a{
-    display:inline-block;
-    margin-top:10px;
-    padding:8px 15px;
-    background:#0b3d91;
-    color:white;
-    text-decoration:none;
-    border-radius:6px;
-}
 
 .youtube{
     text-align:center;
@@ -483,4 +457,38 @@ transition:0.3s;
 .class-card:hover{
 background:#0b3d91;
 color:white;
+}
+
+.blog-section{
+padding:40px;
+background:#f5f6fa;
+}
+
+.blog-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:20px;
+}
+
+.blog-card{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.blog-card h3{
+color:#0b3d91;
+margin-bottom:10px;
+}
+
+.blog-card a{
+display:inline-block;
+margin-top:10px;
+padding:8px 15px;
+background:#0b3d91;
+color:white;
+text-decoration:none;
+border-radius:6px;
 }
