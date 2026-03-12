@@ -398,6 +398,7 @@ object-fit:cover;
 }
 
 
+
 .read-btn{
 display:inline-block;
 padding:10px 18px;
@@ -424,17 +425,35 @@ background:#173d83;
 background:#256628;
 }
 
+
 details{
-margin-top:10px;
+margin-top:12px;
 }
 
 summary{
 cursor:pointer;
-font-weight:bold;
-padding:8px;
-background:#f2f2f2;
+padding:10px 14px;
+background:#1f4ea3;
+color:white;
 border-radius:6px;
+font-weight:bold;
+display:block;
+width:220px;
+margin-top:8px;
 }
+
+details details summary{
+background:#2f6bd1;
+}
+
+summary::-webkit-details-marker{
+display:none;
+}
+
+details ul{
+margin:10px 0 0 25px;
+}
+
 
 
 .class-grid{
