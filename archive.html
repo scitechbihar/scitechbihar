@@ -1,31 +1,61 @@
+<!DOCTYPE html>
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Government Letter Archives</title>
 
 <link rel="stylesheet" href="style.css">
 
 </head>
-<details>
-<summary>📅 2026</summary>
 
-<details>
-<summary>March</summary>
+<body>
+   <h2>📑 Government Letter Archives</h2>
 
-<ul>
-<li><a href="acspatna-letter-march26.pdf">ACS Patna Letter March 2026</a></li>
-<li><a href="deo-siwan-march26.pdf">DEO Siwan Letter March 2026</a></li>
-</ul>
+<input type="text" id="searchInput"
+placeholder="🔎 Search letter..."
+onkeyup="searchLetters()"
+style="padding:8px;width:260px;border:1px solid #ccc;border-radius:6px;">
 
-</details>
 
-<details>
-<summary>February</summary>
+<br><br>
 
-<ul>
-<li><a href="dpepatna12feb26.pdf">DPE Patna Letter February 2026</a></li>
-</ul>
+<table class="archive-table" id="letterTable">
 
-</details>
+<tr>
+<th>Department</th>
+<th>Letter No</th>
+<th>Date</th>
+<th>View</th>
+</tr>
 
-</details>
+<tr>
+<td>ACS Patna</td>
+<td>16/09.01.26</td>
+<td>09 Jan 2026</td>
+<td>
+    <li class="letter"><a href="acspatna-letter-march26.pdf">View</a></li>
+</td>
+</tr>
+
+<tr>
+<td>DEO Siwan</td>
+<td>35/29.01.26</td>
+<td>29 Jan 2026</td>
+<td><a href="deo-siwan-march26.pdf">View</a></td>
+</tr>
+
+<tr>
+<td>DPE Patna</td>
+<td>714/12.02.26</td>
+<td>12 Feb 2026</td>
+<td><a href="dpepatna12feb26.pdf">View</a></td>
+</tr>
+
+</table>
+
+<script src="script.js"></script>
+
+</body>
+</html>

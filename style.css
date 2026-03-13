@@ -399,61 +399,52 @@ object-fit:cover;
 
 
 
-.read-btn{
-display:inline-block;
-padding:10px 18px;
+
+.archive-table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+background:white;
+}
+
+.archive-table th{
 background:#1f4ea3;
 color:white;
-text-decoration:none;
-border-radius:6px;
+padding:10px;
 }
 
-.archive-btn{
-display:inline-block;
-padding:10px 18px;
-background:#2e7d32;
-color:white;
-text-decoration:none;
-border-radius:6px;
+.archive-table td{
+padding:10px;
+border-bottom:1px solid #ddd;
 }
 
-.read-btn:hover{
-background:#173d83;
+.archive-table tr:hover{
+background:#f2f2f2;
 }
 
-.archive-btn:hover{
-background:#256628;
-}
-
-
-details{
-margin-top:12px;
-}
-
-summary{
-cursor:pointer;
-padding:10px 14px;
+.archive-table a{
 background:#1f4ea3;
 color:white;
-border-radius:6px;
-font-weight:bold;
-display:block;
-width:220px;
-margin-top:8px;
-}
-
-details details summary{
-background:#2f6bd1;
-}
-
-summary::-webkit-details-marker{
-display:none;
+padding:5px 12px;
+text-decoration:none;
+border-radius:4px;
 }
 
 details ul{
-margin:10px 0 0 25px;
+margin-top:10px;
+padding-left:25px;
+line-height:1.8;
 }
 
+details ul li a{
+color:#1f4ea3;
+font-weight:500;
+text-decoration:none;
+}
+
+details ul li a:hover{
+text-decoration:underline;
+}
 
 
 .class-grid{
