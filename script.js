@@ -1,9 +1,6 @@
 function toggleMenu(){
-    const nav = document.getElementById("nav-links");
-    const burger = document.querySelector(".hamburger");
-
-    nav.classList.toggle("active");
-    burger.classList.toggle("active");
+const nav = document.getElementById("navLinks");
+nav.classList.toggle("active");
 }
 
 <script>
@@ -34,3 +31,4 @@ fetch("latest-letter.html")
 .then(data => {
 document.getElementById("latestLetter").innerHTML = data;
 });
+
