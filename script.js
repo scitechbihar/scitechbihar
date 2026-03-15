@@ -1,11 +1,8 @@
-
 function toggleMenu() {
 const nav = document.getElementById("navLinks");
 nav.classList.toggle("active");
 }
 
-
-<script>
 function searchLetters() {
 
 let input = document.getElementById("searchInput");
@@ -26,11 +23,8 @@ letters[i].style.display = "none";
 
 }
 
-</script>
-
 fetch("latest-letter.html")
 .then(response => response.text())
 .then(data => {
 document.getElementById("latestLetter").innerHTML = data;
 });
-
