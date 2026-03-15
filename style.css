@@ -101,7 +101,7 @@ display:flex;
 align-items:center;
 justify-content:space-between;
 position:relative;
-width: 100%;
+padding: 10px 12px;
 }
 
 .nav-links{
@@ -118,10 +118,7 @@ margin:0 10px;
 display:none;
 flex-direction:column;
 cursor:pointer;
-position: absolute;
-right: 10px;
-top: 18px;
-z-index:1000;
+margin-left: 10px;
 }
 
 .hamburger span{
@@ -133,15 +130,20 @@ margin:4px;
 
 /* Mobile */
 @media (max-width:768px){
+
+.hamburger{
+display:flex;
+}
 .nav-links{
-display: none;
-flex-direction:column;
-background:white;
+    display: none;
 position:absolute;
 top:60px;
 right:0px;
 width:200px;
+background:white;
+flex-direction:column;
 }
+
 
 
 .nav-links.active{
@@ -376,9 +378,16 @@ gap:5px;
 }
 
 .search-box input{
-padding:7px 10px;
+    width: 140px;
+    padding:7px 10px;
 border-radius:20px;
 border:1px solid #ccc;
+}
+
+@media (max-width:768px){
+    .search-box input{
+        width: 90px;
+    }
 }
 
 .search-box button{
