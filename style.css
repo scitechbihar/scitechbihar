@@ -118,6 +118,9 @@ margin:0 10px;
 display:none;
 flex-direction:column;
 cursor:pointer;
+position: absolute;
+right: 10px;
+top: 18px;
 z-index:1000;
 }
 
@@ -131,18 +134,18 @@ margin:4px;
 /* Mobile */
 @media (max-width:768px){
 .nav-links{
+display: none;
+flex-direction:column;
+background:white;
 position:absolute;
 top:60px;
-right:-220px;
+right:0px;
 width:200px;
-background:white;
-flex-direction:column;
-transition:0.3s;
 }
 
 
 .nav-links.active{
-right:0;
+display: flex;
 }
 
 
