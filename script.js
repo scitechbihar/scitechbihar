@@ -3,24 +3,9 @@ const nav = document.getElementById("navLinks");
 nav.classList.toggle("active");
 }
 
-function searchLetters() {
-
-let input = document.getElementById("searchInput");
-let filter = input.value.toLowerCase();
-let letters = document.getElementsByClassName("letter");
-
-for (let i = 0; i < letters.length; i++) {
-
-let text = letters[i].textContent || letters[i].innerText;
-
-if (text.toLowerCase().indexOf(filter) > -1) {
-letters[i].style.display = "";
-} else {
-letters[i].style.display = "none";
-}
-
-}
-
+function toggleSearch(){
+const box = document.getElementById("searchBox");
+box.classList.toggle("active");
 }
 
 fetch("latest-letter.html")
