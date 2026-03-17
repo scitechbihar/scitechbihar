@@ -12,23 +12,26 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
- <div class="topbar">
-    <marquee>
-    SciTech Bihar | Education • Govt Updates • Technology | 
-    Latest Bihar Education Letters | 
-    Visit SciTech Bihar Daily for Updates
-    </marquee>
-</div>
-
-
-<nav class="navbar">
-    <div class="logo">SciTech Bihar</div>
-
-    <div class="search-box">
-    <input type="text" placeholder="Search...">
-    <button>🔍</button>
+    <div class="topbar">
+        <marquee>
+            SciTech Bihar | Education • Govt Updates • Technology | 
+            Latest Bihar Education Letters | 
+            Visit SciTech Bihar Daily for Updates
+        </marquee>
     </div>
+
+
+    <nav class="navbar">
+        <div class="logo">SciTech Bihar</div>
+
+        <div class="search-container">
+            <button class="search-icon" onclick="toggleSearch()">🔍</button>
+            
+            <div class="search-box" id="searchBox">
+                <input type="text" placeholder="Search...">
+            </div>
+        </div>
+
 
     <ul class="nav-links" id="navLinks">
         <li><a href="#">Home</a></li>
