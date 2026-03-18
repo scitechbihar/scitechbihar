@@ -158,6 +158,8 @@ html, body {
     width: 100%;
     height: 350px;
     object-fit: cover;
+    object-fit: cover; /* इमेज क्रॉप होगी लेकिन खिंचेगी नहीं */
+    /* object-fit: contain;  से इमेज पूरी दिखेगी लेकिन साइड में स्पेस आ सकता है */
 }
 
 @keyframes slide {
@@ -520,4 +522,68 @@ details ul li a:hover {
     .hero p {
         font-size: 16px;
     }
+}
+
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  margin: 20px;
+  background: #f9f9f9;
+}
+
+h1, h2 {
+  color: #2c3e50;
+}
+
+.mcq {
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.answer-box {
+  background: #eafaf1;
+  padding: 20px;
+  border: 2px solid #27ae60;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  margin: 20px;
+  background: #f9f9f9;
+}
+
+h1, h2 {
+  color: #2c3e50;
+}
+
+.mcq {
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.answer-box {
+  background: #eafaf1;
+  padding: 20px;
+  border: 2px solid #27ae60;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+.question {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.question:hover {
+    background: #e9f2ff;
 }
