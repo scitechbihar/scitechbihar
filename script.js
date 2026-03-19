@@ -101,8 +101,9 @@ function checkAnswer(btn, correctAnswer) {
   clearInterval(timer);
 
   const result = document.getElementById("result");
-  const buttons = document.querySelectorAll("#mcq-container button");
 
+  // ✅ सिर्फ MCQ buttons disable
+  const buttons = document.querySelectorAll("#mcq-container button");
   buttons.forEach(b => b.disabled = true);
 
   if (btn.innerText === correctAnswer) {
@@ -116,8 +117,12 @@ function checkAnswer(btn, correctAnswer) {
 
   document.getElementById("score").innerText = `Score: ${score}`;
 
-  document.getElementById("nextBtn").style.display = "block";
+  // ✅ Next button enable + show
+  const nextBtn = document.getElementById("nextBtn");
+  nextBtn.disabled = false;
+  nextBtn.style.display = "block";
 }
+
 
 function nextQuestion() {
   currentQuestion++;
