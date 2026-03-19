@@ -23,30 +23,51 @@ document.getElementById("latestLetter").innerHTML = data;
 
 
 
-document.addEventListener("DOMContentLoaded", function () {
 
-  fetch('mcq.json')
-    .then(response => response.json())
-    .then(data => {
-      const container = document.getElementById('mcq-container');
 
-      data.forEach((item, index) => {
-        const div = document.createElement('div');
-        div.classList.add('question');
+let score = 0;
 
-        div.innerHTML = `
-          <p class="question-text"><strong>प्रश्न ${index + 1}:</strong> ${item.question}</p>
-          <p class="answer" style="display:none;">उत्तर: ${item.answer}</p>
-        `;
+fetch("mcq.json")
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById("mcq-container");
 
-        // 👇 click event
-        div.addEventListener("click", () => {
-          const ans = div.querySelector(".answer");
-          ans.style.display = ans.style.display === "none" ? "block" : "none";
-        });
+    data.forEach((item, index) => {
+      const div = document.createElement("div");
+      div.classList.add("mcq");
 
-        container.appendChild(div);
-      });
+      div.innerHTML = `
+        <p><strong>Q${index + 1}. ${item.q}</strong></p>
+        ${item.options.map(opt => 
+          `<button onclick="checkAnswer(this, '${item.answer}')">${opt}</button>`
+        ).join("")}
+        <p class="result"></p>
+      `;
+
+      container.appendChild(div);
     });
+  });
 
-});
+function checkAnswer(btn, correctAnswer) {
+  const parent = btn.parentElement;
+  const result = parent.querySelector(".result");
+
+  // disable all buttons
+  const buttons = parent.querySelectorAll("button");
+  buttons.forEach(b => b.disabled = true);
+
+  if (btn.innerText === correctAnswer) {
+    result.innerHTML = "✅ सही उत्तर";
+    result.style.color = "green";
+    score++;
+  } else {
+    result.innerHTML = `❌ गलत! सही उत्तर: ${correctAnswer}`;
+    result.style.color = "red";
+  }
+
+  updateScore();
+}
+
+function updateScore() {
+  document.getElementById("score").innerText = `Score: ${score}`;
+}
