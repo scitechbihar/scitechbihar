@@ -536,13 +536,6 @@ h1, h2 {
   color: #2c3e50;
 }
 
-.mcq {
-  background: #fff;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
 
 .answer-box {
   background: #eafaf1;
@@ -564,11 +557,19 @@ h1, h2 {
 }
 
 .mcq {
-  background: #fff;
-  padding: 15px;
-  margin-bottom: 15px;
+  text-align: center;
+}
+
+.mcq button {
+  display: block;
+  width: 70%;
+  margin: 10px auto;
+  padding: 12px;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.mcq button:hover {
+  background-color: #f0f0f0;
 }
 
 .answer-box {
@@ -589,19 +590,16 @@ h1, h2 {
 }
 
 
-.mcq button {
-  display: block;
-  margin: 8px 0;
-  padding: 10px 14px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
 #nextBtn {
   margin-top: 15px;
   padding: 10px 16px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+}
+
+#mcq-container .mcq button {
+  display: block !important;
+  width: 100% !important;
+  margin: 10px 0 !important;
 }

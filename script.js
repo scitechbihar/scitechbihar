@@ -22,67 +22,45 @@ document.getElementById("latestLetter").innerHTML = data;
 });
 
 
-
-
-
-let score = 0;
-
-fetch("mcq.json")
-  .then(res => res.json())
-  .then(data => {
-    const container = document.getElementById("mcq-container");
-
-    data.forEach((item, index) => {
-      const div = document.createElement("div");
-      div.classList.add("mcq");
-
-      div.innerHTML = `
-        <p><strong>Q${index + 1}. ${item.q}</strong></p>
-        ${item.options.map(opt => 
-          `<button onclick="checkAnswer(this, '${item.answer}')">${opt}</button>`
-        ).join("")}
-        <p class="result"></p>
-      `;
-
-      container.appendChild(div);
-    });
-  });
-
-
-
-
-
-
-
 let currentQuestion = 0;
-
+let score = 0;
 let timer;
 let timeLeft = 30;
 let questions = [];
 
+// 🔊 sound
+const correctSound = new Audio("sounds/correct.mp3");
+const wrongSound = new Audio("sounds/wrong.mp3");
+
+// ✅ single fetch (ONLY ONE)
 fetch("mcq.json")
   .then(res => res.json())
   .then(data => {
-    console.log("Loaded data:", data); // ✅ debug
     questions = data;
-
-    if (questions.length > 0) {
-      loadQuestion();   // 👉 यह जरूरी है
-    } else {
-      document.getElementById("mcq-container").innerHTML = "No questions found";
-    }
+    loadQuestion();
   })
-  .catch(err => {
-    console.log("Error loading JSON:", err);
-  });
+  .catch(err => console.log(err));
 
 
-  function loadQuestion() {
+function loadQuestion() {
   clearInterval(timer);
   timeLeft = 30;
   startTimer();
 
   const container = document.getElementById("mcq-container");
+
+  // ✅ safety check
+  if (!container) {
+    console.log("mcq-container not found ❌");
+    return;
+  }
+
+  // ✅ question check
+  if (!questions[currentQuestion]) {
+    console.log("Question not found ❌");
+    return;
+  }
+
   container.innerHTML = "";
 
   const q = questions[currentQuestion];
@@ -106,58 +84,51 @@ fetch("mcq.json")
 function checkAnswer(btn, correctAnswer) {
   clearInterval(timer);
 
-  const result = document.getElementById("result");
+  const result = btn.parentElement.querySelector("#result");
   const buttons = document.querySelectorAll("#mcq-container button");
-  const nextBtn = document.getElementById("nextBtn");
 
   buttons.forEach(b => {
     b.disabled = true;
 
-    // सही answer को हरा करें
-    if (b.innerText === correctAnswer) {
+    if (b.innerText.trim() === correctAnswer.trim()) {
       b.style.backgroundColor = "green";
       b.style.color = "white";
     }
   });
 
-  if (btn.innerText === correctAnswer) {
+  if (btn.innerText.trim() === correctAnswer.trim()) {
     result.innerHTML = "✅ सही उत्तर";
     result.style.color = "green";
     score++;
+
+    correctSound.currentTime = 0;
+    correctSound.play().catch(()=>{});
   } else {
     btn.style.backgroundColor = "red";
     btn.style.color = "white";
     result.innerHTML = `❌ गलत! सही: ${correctAnswer}`;
     result.style.color = "red";
+
+    wrongSound.currentTime = 0;
+    wrongSound.play().catch(()=>{});
   }
 
   document.getElementById("score").innerText = `Score: ${score}`;
 
-  nextBtn.disabled = false;
-  nextBtn.style.display = "block";
-
-  // 2 सेकंड बाद auto next
   setTimeout(() => {
     nextQuestion();
-  }, 2000);
+  }, 1500);
 }
 
-
 function nextQuestion() {
-  const nextBtn = document.getElementById("nextBtn");
-  nextBtn.disabled = false;
-
   currentQuestion++;
 
   if (currentQuestion < questions.length) {
-    nextBtn.style.display = "none";
     loadQuestion();
   } else {
     showResult();
   }
 }
-
-
 
 function startTimer() {
   document.getElementById("timer").innerText = `Time: ${timeLeft}s`;
@@ -168,7 +139,7 @@ function startTimer() {
 
     if (timeLeft === 0) {
       clearInterval(timer);
-      document.getElementById("nextBtn").style.display = "block";
+      nextQuestion();
     }
   }, 1000);
 }
@@ -178,8 +149,8 @@ function showResult() {
 
   container.innerHTML = `
     <h2>🎉 Quiz Complete!</h2>
-    <h3>Your Score: ${score} / ${questions.length}</h3>
+    <h3>Score: ${score} / ${questions.length}</h3>
   `;
+}
 
-  document.getElementById("nextBtn").style.display = "none";
-}  
+
