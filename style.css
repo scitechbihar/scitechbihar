@@ -562,9 +562,9 @@ h1, h2 {
 
 .mcq button {
   display: block;
-  width: 70%;
+  width: 60%;
   margin: 10px auto;
-  padding: 12px;
+  padding: 10px;
   border-radius: 8px;
 }
 
