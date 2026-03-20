@@ -52,6 +52,8 @@ fetch("mcq.json")
 
 
 
+
+
 let currentQuestion = 0;
 
 let timer;
@@ -74,7 +76,8 @@ fetch("mcq.json")
     console.log("Error loading JSON:", err);
   });
 
-function loadQuestion() {
+
+  function loadQuestion() {
   clearInterval(timer);
   timeLeft = 30;
   startTimer();
@@ -85,6 +88,7 @@ function loadQuestion() {
   const q = questions[currentQuestion];
 
   const div = document.createElement("div");
+  div.classList.add("mcq");
 
   div.innerHTML = `
     <p><strong>Q${currentQuestion + 1}. ${q.q}</strong></p>
@@ -97,43 +101,63 @@ function loadQuestion() {
   container.appendChild(div);
 }
 
+
+
 function checkAnswer(btn, correctAnswer) {
   clearInterval(timer);
 
   const result = document.getElementById("result");
-
-  // ✅ सिर्फ MCQ buttons disable
   const buttons = document.querySelectorAll("#mcq-container button");
-  buttons.forEach(b => b.disabled = true);
+  const nextBtn = document.getElementById("nextBtn");
+
+  buttons.forEach(b => {
+    b.disabled = true;
+
+    // सही answer को हरा करें
+    if (b.innerText === correctAnswer) {
+      b.style.backgroundColor = "green";
+      b.style.color = "white";
+    }
+  });
 
   if (btn.innerText === correctAnswer) {
     result.innerHTML = "✅ सही उत्तर";
     result.style.color = "green";
     score++;
   } else {
+    btn.style.backgroundColor = "red";
+    btn.style.color = "white";
     result.innerHTML = `❌ गलत! सही: ${correctAnswer}`;
     result.style.color = "red";
   }
 
   document.getElementById("score").innerText = `Score: ${score}`;
 
-  // ✅ Next button enable + show
-  const nextBtn = document.getElementById("nextBtn");
   nextBtn.disabled = false;
   nextBtn.style.display = "block";
+
+  // 2 सेकंड बाद auto next
+  setTimeout(() => {
+    nextQuestion();
+  }, 2000);
 }
 
 
 function nextQuestion() {
+  const nextBtn = document.getElementById("nextBtn");
+  nextBtn.disabled = false;
+
   currentQuestion++;
 
   if (currentQuestion < questions.length) {
-    document.getElementById("nextBtn").style.display = "none";
+    nextBtn.style.display = "none";
     loadQuestion();
   } else {
     showResult();
   }
 }
+
+
 
 function startTimer() {
   document.getElementById("timer").innerText = `Time: ${timeLeft}s`;

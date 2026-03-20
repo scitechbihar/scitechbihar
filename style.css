@@ -587,3 +587,21 @@ h1, h2 {
 .question:hover {
     background: #e9f2ff;
 }
+
+
+.mcq button {
+  display: block;
+  margin: 8px 0;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#nextBtn {
+  margin-top: 15px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
